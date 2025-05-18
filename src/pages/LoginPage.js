@@ -35,7 +35,7 @@ function LoginPage(){
     const handleSubmit = (e) => {
         e.preventDefault();
         if(formData.nombre === ''){
-            axios.post(`/auth/login`,formData)
+            axios.post(`/api/auth/login`,formData)
             .then(function (response) {
                 localStorage.setItem("token",btoa(response.data.response.token));
                 setTimeout(() => navigate('/HomePage'), 2000)
