@@ -8,7 +8,7 @@ const obtenerListaTareas = async ({estado}) => {
     let tasks = []
     // console.log(user.user)
     // console.log(token)
-    await axios.get(`/tarea?estado=${estado}`,{headers: { 'Authorization': token}})
+    await axios.get(`https://backendtareas.onrender.com/api/tarea?estado=${estado}`,{headers: { 'Authorization': token}})
     .then((response) =>{
             tasks = response.data.response
         }).
@@ -21,7 +21,7 @@ const obtenerListaTareas = async ({estado}) => {
 }
 
 const registrarTarea = async ({formData:{descripcion, fechaLimite, titulo}}) => {
-    const response = await axios.post('/tarea', {
+    const response = await axios.post('https://backendtareas.onrender.com/api/tarea', {
         titulo,
         descripcion,
         fechaLimite
@@ -30,7 +30,7 @@ const registrarTarea = async ({formData:{descripcion, fechaLimite, titulo}}) => 
 }
 
 const actualizarTarea = async ({descripcion, fechaLimite, titulo, id}) => {
-    const response = await axios.put(`/tarea/${id}`, {
+    const response = await axios.put(`https://backendtareas.onrender.com/api/tarea/${id}`, {
         titulo,
         descripcion,
         fechaLimite,
@@ -39,12 +39,12 @@ const actualizarTarea = async ({descripcion, fechaLimite, titulo, id}) => {
 }
 
 const updateTask = async ({id}) => {
-    const response = await axios.put(`/tarea/cambiar/${id}`,{},{headers:{ 'Authorization': token}})
+    const response = await axios.put(`https://backendtareas.onrender.com/api/tarea/cambiar/${id}`,{},{headers:{ 'Authorization': token}})
     return response
 }
 
 const eliminarTarea = async({id}) => {
-    const data = await axios.delete(`/tarea/${id}`,{headers:{ 'Authorization': token}})
+    const data = await axios.delete(`https://backendtareas.onrender.com/api/tarea/${id}`,{headers:{ 'Authorization': token}})
     console.log("llego: ", data)
     return data
     

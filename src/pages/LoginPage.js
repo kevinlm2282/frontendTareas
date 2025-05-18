@@ -52,7 +52,7 @@ function LoginPage(){
             })
             
         }else{
-            axios.post(`/usuarios`,formData)
+            axios.post(`https://backendtareas.onrender.com/api/usuarios`,formData)
             .then(function (response) {
                 Swal.fire({
                     title: "Se registro su usuario con exito",
